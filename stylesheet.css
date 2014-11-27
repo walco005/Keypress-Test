@@ -2,6 +2,32 @@
     color: green;
 }
 
+#words {
+
+}
+
 #word2 {
     color: red;
+}
+
+#typed2, #notTyped2 {
+    color: #C0C0C0;
+}
+
+#typed1, #notTyped1 {
+    color: #606060;
+}
+
+#typing {
+    color: black;
+}
+
+#typed2, #typed1, #typing, #notTyped1, #notTyped2 {
+    float: left;
+    width: 20%;
+    height: 40px;
+    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
+    font-size: 20px;
 }
