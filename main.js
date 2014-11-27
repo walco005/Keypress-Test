@@ -5,11 +5,21 @@ $(document).ready(function() {
     initializeWords();
 });
 
+
+function printRandoms(number) {
+    var i = 0;
+    while(i < number) {
+        i++;
+        var rand = Math.floor(Math.random() * arr.length);
+        console.log("Random Number #" + i + ": " + rand);
+    }
+};
+
 // Initializes the first three words to type.
 function initializeWords() {
-    var r1 = Math.floor(Math.random() * arr.length+1);
-    var r2 = Math.floor(Math.random() * arr.length+1);
-    var r3 = Math.floor(Math.random() * arr.length+1);
+    var r1 = Math.floor(Math.random() * arr.length);
+    var r2 = Math.floor(Math.random() * arr.length);
+    var r3 = Math.floor(Math.random() * arr.length);
     $("#toType").text(arr[r1]);
     $("#notTyped1").text(arr[r2]);
     $("#notTyped2").text(arr[r3]);
@@ -58,7 +68,7 @@ $(document).keydown(function(key) {
             $("#typed").text("");
             $("#toType").text($("#notTyped1").text());
             $("#notTyped1").text($("#notTyped2").text());
-            var rand = Math.floor(Math.random() * arr.length+1);
+            var rand = Math.floor(Math.random() * arr.length);
             $("#notTyped2").text(arr[rand]);
     };
 });
