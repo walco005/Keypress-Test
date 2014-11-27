@@ -40,22 +40,36 @@ $(document).keydown(function(key) {
 
     //Test array of strings
     var arr = ["these","words","are","really","super","cool","and","kinda","random","yep",];
-    //Right arrow press
-    if(key.keyCode == 39) {
-        $("#notTyped2").text($("#notTyped1").text());
-        $("#notTyped1").text($("#toType1").text());
-        $("#toType1").text($("#typed1").text());
-        $("#typed1").text($("#typed2").text());
-    };
 
-    //Left arrow press
-    if(key.keyCode == 37) {
-        $("#typed2").text($("#typed1").text());
-        $("#typed1").text($("#toType1").text());
-        $("#toType1").text($("#notTyped1").text());
-        $("#notTyped1").text($("#notTyped2").text());
-        var rand = Math.floor(Math.random() * 11);
-        $("#notTyped2").text(arr[rand]);
-    };
+    //Checks if space is being pressed as well as if the span #toType is empty, if so it triggers divMove(left).
+    if((key.keyCode == 0 || key.keyCode == 32) && $("#toType").text() == "") {
+            $("#typed2").text($("#typed1").text());
+            $("#typed1").text($("#typed").text());
+            $("#typed").text("");
+            $("#toType").text($("#notTyped1").text());
+            $("#notTyped1").text($("#notTyped2").text());
+            var rand = Math.floor(Math.random() * arr.length+1);
+            $("#notTyped2").text(arr[rand]);
+    }
 
+//    //Right arrow press
+//    if(key.keyCode == 39) {
+//        $("#notTyped2").text($("#notTyped1").text());
+//        $("#notTyped1").text($("#toType").text());
+//        $("#toType").text($("#typed1").text());
+//        $("#typed1").text($("#typed2").text());
+//        var rand = Math.floor(Math.random() * arr.length+1);
+//        $("#typed2").text(arr[rand]);
+//    };
+//
+//    //Left arrow press
+//    if(key.keyCode == 37) {
+//        $("#typed2").text($("#typed1").text());
+//        $("#typed1").text($("#typed").text());
+//        $("#typed").text("");
+//        $("#toType").text($("#notTyped1").text());
+//        $("#notTyped1").text($("#notTyped2").text());
+//        var rand = Math.floor(Math.random() * arr.length+1);
+//        $("#notTyped2").text(arr[rand]);
+//    };
 });
